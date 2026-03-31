@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 250" width="180" height="250">
+  <defs>
+    <linearGradient id="spellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="250" fill="url(#spellGrad)"/>
+  <rect width="180" height="40" fill="rgba(0,0,0,0.3)"/>
+  <text x="90" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Заклинание</text>
+  <circle cx="90" cy="120" r="40" fill="rgba(255,255,255,0.2)"/>
+  <text x="90" y="130" text-anchor="middle" fill="white" font-size="24" font-weight="bold">🔮</text>
+  <text x="90" y="210" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Fireball</text>
+  <text x="90" y="235" text-anchor="middle" fill="white" font-size="9">МР: 2</text>
+</svg>
