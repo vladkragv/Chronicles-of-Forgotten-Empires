@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хроники забытых империй - Настольная Карточная Игра</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fantasy.css">
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-image">
+                    <!-- Логотип компании: разместить изображение здесь -->
+                    <img src="images/logo.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="logo">
+                <span class="logo-text">Хроники забытых империй</span>
+            </div>
+                
+                <div class="game-selector">
+                    <button class="selector-btn">Выбор настолки</button>
+                    <div class="selector-dropdown">
+                        <a href="index.html" class="selector-item active">Хроники забытых империй</a>
+                        <div class="selector-item disabled">Скоро...</div>
+                    </div>
+                </div>
+
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link active">ГЛАВНАЯ</a>
+                    <a href="rules.html" class="nav-link">ПРАВИЛА</a>
+                    <a href="cards.html" class="nav-link">КАРТЫ</a>
+                    <a href="about.html" class="nav-link">ОБ ИГРЕ</a>
+                </nav>
+
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link active">ГЛАВНАЯ</a>
+        <a href="rules.html" class="mobile-nav-link">ПРАВИЛА</a>
+        <a href="cards.html" class="mobile-nav-link">КАРТЫ</a>
+        <a href="about.html" class="mobile-nav-link">ОБ ИГРЕ</a>
+    </div>
+
+    <!-- Баннер с видео -->
+    <section class="hero">
+        <div class="hero-background">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="images/hero-background.mp4" type="video/mp4">
+                <div class="hero-background-fallback"></div>
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Хроники забытых империй</h1>
+            <p class="hero-subtitle">Эпическая настольная карточная игра о вызове судьбе</p>
+            <a href="https://www.avito.ru/" class="btn btn-primary" target="_blank">🛒 Купить настольную игру</a>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Описание игры -->
+            <section class="game-description">
+                <h2>О игре</h2>
+                <p>
+                    «Хроники забытых империй» — стратегическая карточная игра для 2 - 6 игроков, где вы выбираете уникального героя и ведёте его через опасные подземелья, собирая артефакты и противостоя врагам. Каждая партия занимает 30–60 минут и требует как удачи, так и тактического мышления. Комбинируйте способности карт, управляйте ресурсами маны и стройте правильную стратегию атаки, чтобы остаться последним выжившим!
+                </p>
+            </section>
+
+            <!-- Галерея карт -->
+            <section class="cards-gallery">
+                <h2>12 УНИКАЛЬНЫХ ГЕРОЕВ</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/hero-1.jpg" alt="Герой" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-heroes">Герой</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Воин Света</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/spell-1.jpg" alt="Заклинание" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-spells">Заклинание</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Fireball</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/artifact-1.jpg" alt="Артефакт" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-artifacts">Артефакт</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Кольцо Силы</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/beast-1.jpg" alt="Зверь" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-beasts">Зверь</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Волк вьюги</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/demon-1.jpg" alt="Демон" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-demons">Демон</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Граф Ада</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="card-preview">
+                            <img src="images/cards/trap-1.jpg" alt="Ловушка" class="card-image">
+                            <div class="card-overlay">
+                                <span class="card-type type-traps">Ловушка</span>
+                            </div>
+                        </div>
+                        <p class="card-name">Шипы</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="cards.html" class="btn btn-secondary">Все карты —</a>
+                </div>
+            </section>
+
+            <!-- Цифры -->
+            <section class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Героев</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">88</span>
+                    <span class="stat-label">Карт</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2–6</span>
+                    <span class="stat-label">Игроков</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20–40</span>
+                    <span class="stat-label">Минут</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 ЭНТУЗИАСТ</p>
+                <div class="footer-links">
+                    <a href="https://vk.com/vladkragv" target="_blank" class="footer-link">VK</a>
+                    <a href="https://t.me/vladkragv" target="_blank" class="footer-link">Telegram</a>
+                    <a href="https://www.avito.ru/" target="_blank" class="footer-link">Купить игру</a>
+                </div>
+                <button class="back-to-top" id="backToTop">↑</button>
+                <div class="footer-age-rating">14+</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/dynamic-content.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

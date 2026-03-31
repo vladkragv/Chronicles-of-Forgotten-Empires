@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админка - Хроники забытых империй</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <div id="loginContainer" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🔐 Раздел администратора</h1>
+                <p>Введите учётные данные</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Логин:</label>
+                    <input type="text" id="username" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" placeholder="Введите пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-login">Войти</button>
+                <p id="loginError" class="login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminContainer" class="admin-container" style="display: none;">
+        <!-- Заголовок админки -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h1>⚙️ Админка игры</h1>
+                <button id="logoutBtn" class="btn btn-small">Выход</button>
+            </div>
+        </header>
+
+        <!-- Навигация по вкладкам -->
+        <nav class="admin-nav">
+            <button class="admin-nav-btn active" data-tab="home">Главная</button>
+            <button class="admin-nav-btn" data-tab="cards">Карты</button>
+            <button class="admin-nav-btn" data-tab="settings">Настройки</button>
+        </nav>
+
+        <div class="admin-content">
+            <!-- ВКЛАДКА: Главная -->
+            <section id="home-panel" class="admin-panel active">
+                <h2>Редактирование данных главной страницы</h2>
+                
+                <div class="form-group">
+                    <label for="gameTitle">Название игры:</label>
+                    <input type="text" id="gameTitle" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="gameSubtitle">Подзаголовок:</label>
+                    <input type="text" id="gameSubtitle" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="gameDescription">Описание игры:</label>
+                    <textarea id="gameDescription" class="form-textarea" rows="6"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyLogo">Логотип компании (URL или текст):</label>
+                    <input type="text" id="companyLogo" class="form-input" placeholder="Например: ЭНТУЗИАСТ или URL изображения">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Название компании:</label>
+                    <input type="text" id="companyName" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="videoUrl">URL видео для фона (YouTube/Vimeo):</label>
+                    <input type="text" id="videoUrl" class="form-input" placeholder="https://...">
+                </div>
+
+                <h3>Имена 12 героев для главной страницы:</h3>
+                <div id="heroNamesContainer" class="hero-names-grid"></div>
+
+                <button class="btn btn-primary" id="saveHomeBtn">💾 Сохранить</button>
+            </section>
+
+            <!-- ВКЛАДКА: Карты -->
+            <section id="cards-panel" class="admin-panel">
+                <h2>Редактирование карт</h2>
+                
+                <div class="cards-control-panel">
+                    <input type="text" id="searchCardInput" class="form-input" placeholder="🔍 Поиск карты по названию...">
+                    <button class="btn btn-small" id="addCardBtn">➕ Добавить новую карту</button>
+                </div>
+
+                <div id="cardsListContainer" class="cards-list-container"></div>
+            </section>
+
+            <!-- ВКЛАДКА: Настройки -->
+            <section id="settings-panel" class="admin-panel">
+                <h2>Общие настройки</h2>
+                
+                <h3>Цвета для ролей</h3>
+                <div id="colorsContainer" class="colors-grid"></div>
+                <button class="btn btn-primary" id="saveColorsBtn">💾 Сохранить цвета</button>
+
+                <hr>
+
+                <h3>Резервная копия и восстановление</h3>
+                <div class="backup-section">
+                    <button class="btn btn-secondary" id="exportDataBtn">📥 Скачать резервную копию</button>
+                    <button class="btn btn-secondary" id="importDataBtn">📤 Загрузить резервную копию</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                </div>
+
+                <div class="backup-section">
+                    <button class="btn btn-danger" id="resetDataBtn">⚠️ Сбросить на стандартные значения</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- МОДАЛ для редактирования карты -->
+    <div id="cardEditModal" class="admin-modal" style="display: none;">
+        <div class="admin-modal-content">
+            <button class="modal-close" id="cardEditClose">&times;</button>
+            <h2>Редактирование карты</h2>
+            
+            <form id="cardEditForm">
+                <input type="hidden" id="cardEditId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cardEditName">Название:</label>
+                        <input type="text" id="cardEditName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardEditType">Тип:</label>
+                        <select id="cardEditType" class="form-input" required>
+                            <option value="heroes">Герои</option>
+                            <option value="beasts">Звери</option>
+                            <option value="demons">Демоны</option>
+                            <option value="spirits">Духи</option>
+                            <option value="undead">Нежить</option>
+                            <option value="dragons">Драконы</option>
+                            <option value="orcs">Орки</option>
+                            <option value="weapons">Орудия</option>
+                            <option value="traps">Ловушки</option>
+                            <option value="artifacts">Артефакты</option>
+                            <option value="spells">Заклинания</option>
+                            <option value="catacombs">Входы в катакомбы</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cardEditAtk">АТК:</label>
+                        <input type="number" id="cardEditAtk" class="form-input" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardEditHp">ХП:</label>
+                        <input type="number" id="cardEditHp" class="form-input" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardEditMana">МР:</label>
+                        <input type="number" id="cardEditMana" class="form-input" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardEditAbility">Способность:</label>
+                    <textarea id="cardEditAbility" class="form-textarea" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardEditImage">Изображение (название файла, например: hero-1.jpg):</label>
+                    <input type="text" id="cardEditImage" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="cardEditImageUrl">Или загрузить новое изображение (URL):</label>
+                    <input type="text" id="cardEditImageUrl" class="form-input" placeholder="https://...">
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">💾 Сохранить карту</button>
+                    <button type="button" class="btn btn-secondary" id="deleteCardBtn">🗑️ Удалить карту</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- МОДАЛ для редактирования блока правил -->
+    <div id="ruleBlockEditModal" class="admin-modal" style="display: none;">
+        <div class="admin-modal-content">
+            <button class="modal-close" id="ruleBlockEditClose">&times;</button>
+            <h2>Редактирование блока правил</h2>
+            
+            <form id="ruleBlockEditForm">
+                <input type="hidden" id="ruleBlockEditId">
+                
+                <div class="form-group">
+                    <label for="ruleBlockEditTitle">Заголовок блока:</label>
+                    <input type="text" id="ruleBlockEditTitle" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ruleBlockEditIcon">Иконка/Эмодзи:</label>
+                    <input type="text" id="ruleBlockEditIcon" class="form-input" placeholder="🎮" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ruleBlockEditText">Текст описания:</label>
+                    <textarea id="ruleBlockEditText" class="form-textarea" rows="6" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ruleBlockEditImage">Фоновое изображение (URL, опционально):</label>
+                    <input type="text" id="ruleBlockEditImage" class="form-input" placeholder="https://...">
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">💾 Сохранить блок</button>
+                    <button type="button" class="btn btn-secondary" id="deleteRuleBlockBtn">🗑️ Удалить блок</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
