@@ -8,7 +8,7 @@ echo ""
 
 # Проверка HTML файлов
 echo "✓ Проверка HTML файлов..."
-for file in index.html rules.html cards.html about.html admin.html; do
+for file in index.html rules.html cards.html about.html; do
     if [ -f "$file" ]; then
         echo "  ✓ $file - найден"
     else
@@ -18,7 +18,7 @@ done
 
 echo ""
 echo "✓ Проверка CSS файлов..."
-for file in css/styles.css css/fantasy.css css/admin.css; do
+for file in css/styles.css css/fantasy.css; do
     if [ -f "$file" ]; then
         echo "  ✓ $file - найден"
     else
@@ -28,7 +28,7 @@ done
 
 echo ""
 echo "✓ Проверка JavaScript файлов..."
-for file in js/data.js js/storage.js js/main.js js/rules.js js/admin.js js/animations.js js/dynamic-content.js js/rules-loader.js; do
+for file in js/data.js js/storage.js js/main.js js/rules.js js/animations.js js/dynamic-content.js js/rules-loader.js; do
     if [ -f "$file" ]; then
         echo "  ✓ $file - найден"
     else
@@ -38,7 +38,7 @@ done
 
 echo ""
 echo "✓ Проверка документации..."
-for file in README.md PROJECT_SUMMARY.md ADMIN_GUIDE.md CHANGELOG.md DESIGN_UPDATES.md; do
+for file in README.md PROJECT_SUMMARY.md; do
     if [ -f "$file" ]; then
         echo "  ✓ $file - найден"
     else
@@ -63,6 +63,5 @@ echo "========================================"
 echo ""
 echo "📌 Следующие шаги:"
 echo "1. Добавьте видео: /images/hero-background.mp4"
-echo "2. Откройте admin.html и отредактируйте блоки правил"
-echo "3. Откройте index.html для просмотра результатов"
+echo "2. Откройте index.html для просмотра результатов"
 echo ""

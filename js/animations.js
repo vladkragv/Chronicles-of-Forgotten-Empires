@@ -20,8 +20,7 @@ function initializeScrollAnimations() {
         'tip-item': 'fadeInWithRotation 0.7s ease-out forwards',
         'faq-item': 'expandFromCenter 0.8s ease-out forwards',
         'card-container': 'enigmaticReveal 0.9s ease-out forwards',
-        'gallery-item': 'arcaneAppear 0.7s ease-out forwards',
-        'card-preview': 'glitchAppear 0.7s ease-out forwards',
+        'gallery-item': 'smoothCardReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards',
         'about-section': 'fadeInWithMist 0.9s ease-out forwards',
         'rules-subsection': 'slideInWithMist 0.8s ease-out forwards'
     };
@@ -53,7 +52,7 @@ function initializeScrollAnimations() {
     // Применить observer к элементам
     const animatedElements = document.querySelectorAll(
         '.stat-item, .point-item, .tip-item, .faq-item, .card-container, ' +
-        '.about-section, .rules-subsection, .gallery-item, .card-preview, .card-item'
+        '.about-section, .rules-subsection, .gallery-item, .card-item'
     );
 
     animatedElements.forEach(element => {

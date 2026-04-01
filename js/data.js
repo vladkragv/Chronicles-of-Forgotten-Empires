@@ -4,18 +4,19 @@
 
 const CARDS_DATABASE = [
     // ===== ГЕРОИ (12) =====
-    { id: 1, name: 'Воин Света', type: 'heroes', atk: 3, hp: 8, mana: 0, ability: 'В начале хода восстановите +1 МР', image: 'hero-1.jpg' },
-    { id: 2, name: 'Тёмный Маг', type: 'heroes', atk: 2, hp: 6, mana: 0, ability: 'Каждое заклинание стоит -1 МР', image: 'hero-2.jpg' },
-    { id: 3, name: 'Охотница', type: 'heroes', atk: 4, hp: 5, mana: 0, ability: 'Каждый раз, когда враг разыгрывает существо, нанесите ему 1 урон', image: 'hero-3.jpg' },
-    { id: 4, name: 'Паладин', type: 'heroes', atk: 2, hp: 10, mana: 0, ability: 'Артефакты дают +2 ХР вместо +1', image: 'hero-4.jpg' },
-    { id: 5, name: 'Некромант', type: 'heroes', atk: 2, hp: 8, mana: 0, ability: 'Нежить стоит -1 МР', image: 'hero-5.jpg' },
-    { id: 6, name: 'Волшебник', type: 'heroes', atk: 1, hp: 5, mana: 0, ability: 'Вы можете использовать заклинания дважды за ход', image: 'hero-6.jpg' },
-    { id: 7, name: 'Защитник', type: 'heroes', atk: 2, hp: 12, mana: 0, ability: 'Враги не могут наносить вам урон > 2 за раз', image: 'hero-7.jpg' },
-    { id: 8, name: 'Убийца', type: 'heroes', atk: 5, hp: 4, mana: 0, ability: 'Если враг имеет существо с АТК ≥ 4, урон +1', image: 'hero-8.jpg' },
-    { id: 9, name: 'Жрица', type: 'heroes', atk: 1, hp: 7, mana: 0, ability: 'Восстанавливайте 1 ХП в конце хода', image: 'hero-9.jpg' },
-    { id: 10, name: 'Варвар', type: 'heroes', atk: 4, hp: 9, mana: 0, ability: 'Существа стоят -1 МР', image: 'hero-10.jpg' },
-    { id: 11, name: 'Чародей', type: 'heroes', atk: 2, hp: 6, mana: 0, ability: 'Вы можете доберать дополнительную карту за ход (-2 МР)', image: 'hero-11.jpg' },
-    { id: 12, name: 'Паруса Ветра', type: 'heroes', atk: 3, hp: 7, mana: 0, ability: 'Каждый третий ход восстановите 3 дополнительных ХП', image: 'hero-12.jpg' },
+    { id: 1, name: 'Орк-Берсерк', type: 'heroes', atk: 4, hp: 28, mana: 0, ability: 'Первый урон в бою по Орку каждый раунд уменьшается на 2 (мин. 1). Орки при атаке восстанавливают 1 HP герою.', image: 'hero-1.jpg' },
+    { id: 2, name: 'Ассасин', type: 'heroes', atk: 3, hp: 24, mana: 0, ability: 'Атакуя бросает d6. 1-3: двойной урон; 4-6: обычный урон. Стоимость: 3 МАНЫ. Атака по Нежити +1 АТК.', image: 'hero-2.jpg' },
+    //=== Закончил тут ===//
+    { id: 3, name: 'Некромант', type: 'heroes', atk: 3, hp: 24, mana: 0, ability: 'Каждый раз, когда враг разыгрывает существо, нанесите ему 1 урон', image: 'hero-3.jpg' },
+    { id: 4, name: 'Маг Эльф', type: 'heroes', atk: 3, hp: 25, mana: 0, ability: 'Артефакты дают +2 ХР вместо +1', image: 'hero-4.jpg' },
+    { id: 5, name: 'Маг Лекарь', type: 'heroes', atk: 2, hp: 20, mana: 0, ability: 'Нежить стоит -1 МР', image: 'hero-5.jpg' },
+    { id: 6, name: 'Стрелок Лучник', type: 'heroes', atk: 3, hp: 20, mana: 0, ability: 'Вы можете использовать заклинания дважды за ход', image: 'hero-6.jpg' },
+    { id: 7, name: 'Паладин', type: 'heroes', atk: 2, hp: 32, mana: 0, ability: 'Враги не могут наносить вам урон > 2 за раз', image: 'hero-7.jpg' },
+    { id: 8, name: 'Темный Маг', type: 'heroes', atk: 4, hp: 25, mana: 0, ability: 'Если враг имеет существо с АТК ≥ 4, урон +1', image: 'hero-8.jpg' },
+    { id: 9, name: 'Чародей', type: 'heroes', atk: 3, hp: 24, mana: 0, ability: 'Восстанавливайте 1 ХП в конце хода', image: 'hero-9.jpg' },
+    { id: 10, name: 'Гладиатор', type: 'heroes', atk: 4, hp: 26, mana: 0, ability: 'Существа стоят -1 МР', image: 'hero-10.jpg' },
+    { id: 11, name: 'Друид', type: 'heroes', atk: 3, hp: 25, mana: 0, ability: 'Вы можете доберать дополнительную карту за ход (-2 МР)', image: 'hero-11.jpg' },
+    { id: 12, name: 'Наездник Дракона', type: 'heroes', atk: 2, hp: 26, mana: 0, ability: 'Каждый третий ход восстановите 3 дополнительных ХП', image: 'hero-12.jpg' },
 
     // ===== ЗВЕРИ (7) =====
     { id: 13, name: 'Волк вьюги', type: 'beasts', atk: 3, hp: 2, mana: 2, ability: 'Может атаковать несколько целей', image: 'beast-1.jpg' },

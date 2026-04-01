@@ -352,13 +352,13 @@ h3 {
 /* Обновление Hero баннера */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, rgba(212, 154, 61, 0.1), rgba(107, 165, 71, 0.1));
-    border: 2px solid var(--border-color);
-    box-shadow: 0 8px 30px rgba(212, 154, 61, 0.15);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .hero-background {
-    background: linear-gradient(135deg, rgba(212, 154, 61, 0.2), rgba(107, 165, 71, 0.2), rgba(139, 58, 58, 0.2));
+    background: transparent;
 }
 
 .hero-title {
@@ -383,22 +383,28 @@ h3 {
 }
 
 .gallery-item {
-    animation: scaleIn 0.6s ease forwards;
     opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    filter: blur(8px);
 }
 
-.gallery-item:nth-child(1) { animation-delay: 0.1s; }
-.gallery-item:nth-child(2) { animation-delay: 0.2s; }
-.gallery-item:nth-child(3) { animation-delay: 0.3s; }
-.gallery-item:nth-child(4) { animation-delay: 0.4s; }
-.gallery-item:nth-child(5) { animation-delay: 0.1s; }
-.gallery-item:nth-child(6) { animation-delay: 0.2s; }
-.gallery-item:nth-child(7) { animation-delay: 0.3s; }
-.gallery-item:nth-child(8) { animation-delay: 0.4s; }
-.gallery-item:nth-child(9) { animation-delay: 0.1s; }
-.gallery-item:nth-child(10) { animation-delay: 0.2s; }
-.gallery-item:nth-child(11) { animation-delay: 0.3s; }
-.gallery-item:nth-child(12) { animation-delay: 0.4s; }
+@keyframes smoothCardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+        filter: blur(8px);
+    }
+    60% {
+        opacity: 0.85;
+        transform: translateY(6px) scale(0.99);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
 
 .card-preview {
     border: 2px solid var(--border-color);
@@ -686,12 +692,12 @@ h3 {
 /* Адаптивность */
 @media (max-width: 768px) {
     .container {
-        padding: 0 80px;
+        padding: 0 12px;
     }
 
     .header-content {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .gallery-grid {
@@ -711,12 +717,12 @@ h3 {
     }
 
     .container {
-        padding: 0 60px;
+        padding: 0 10px;
     }
 
     .header-content {
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .gallery-grid {
